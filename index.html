@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+{% for spice in site.data.spices.labels %}
+    <div class="label">
+        <span class="hungarian">{{ spice.hungarian }}</span>
+        {% case spice.preprocess %}
+            {% when "ground" %}
+                <i class="fa-solid fa-mortar-pestle"></i>
+            {% when "chopped" %}
+                <i class="fa-solid fa-cubes-stacked"></i>
+            {% when "whole" %}
+                <i class="fa-solid fa-circle"></i>
+            {% else %}
+                &mdash;
+        {% endcase %}
+        <span class="english">{{ spice.english }}</span>
+        {% if spice.conlang %}
+            <br/>
+            <p class="conlang">
+                {{ spice.conlang.name }} ({{ spice.conlang.language }})<br/>
+                <span class="ipa">[{{ spice.conlang.ipa }}]</span><br/>
+                <span class="note">"{{ spice.conlang.note }}"</span>
+            </p>
+        {% endif %}
+    </div>
+{% endfor %}

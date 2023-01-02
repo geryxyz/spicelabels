@@ -1,0 +1,49 @@
+---
+---
+
+@import "main";
+
+body {
+  width: 210mm;
+  border: black solid 1pt;
+  padding: .5cm;
+}
+
+div.label {
+  display: inline-block;
+  vertical-align: top;
+  max-width: 60mm;
+  max-height: 20mm;
+  min-width: 60mm;
+  min-height: 20mm;
+  margin: 1mm;
+  padding: 1mm;
+  border: black dashed .6pt;
+  text-align: center;
+  font-size: 10pt;
+}
+
+span.hungarian {
+  font-weight: bold;
+  font-variant: small-caps;
+}
+
+span.english {
+  font-weight: bold;
+  font-variant: small-caps;
+}
+
+p.conlang {
+  font-family: serif;
+  font-style: normal;
+  font-size: 8pt;
+}
+
+span.ipa {
+  font-family: "Times New Roman", sans-serif;
+}
+
+span.note {
+  font-style: italic;
+  font-family: serif;
+}

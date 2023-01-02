@@ -1,0 +1,29 @@
+languages:
+  - &taahaaduuhaan "taahaa'duuhaan"
+preprocesses:
+  - &ground "ground"
+  - &chopped "chopped"
+  - &whole "whole"
+labels:
+  -
+    hungarian: "fokhagyma"
+    english: "garlic"
+    preprocess: *ground
+    conlang:
+      name: "TBA"
+      language: *taahaaduuhaan
+      ipa: "TBA"
+      note: "a szaga is, mint a csapzott álombivaly szőre"
+  -
+    hungarian: "feketebors"
+    english: "black pepper"
+    preprocess: *whole
+    conlang:
+        name: "ob'tran bo'řün"
+        language: *taahaaduuhaan
+        ipa: "obʔt͜rɑn boʔʙyn"
+        note: "sötét kicsi-kör"
+  -
+    hungarian: "petrezselyem"
+    english: "parsley"
+    preprocess: *chopped
