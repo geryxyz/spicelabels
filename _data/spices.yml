@@ -4,8 +4,9 @@ preprocesses:
   - &ground "ground"
   - &chopped "chopped"
   - &whole "whole"
+  - &mix "mix"
 labels:
-  -
+  - &ground_garlic
     hungarian: "fokhagyma"
     english: "garlic"
     preprocess: *ground
@@ -14,7 +15,7 @@ labels:
       language: *taahaaduuhaan
       ipa: "TBA"
       note: "a szaga is, mint a csapzott álombivaly szőre"
-  -
+  - &whole_blackpepper
     hungarian: "feketebors"
     english: "black pepper"
     preprocess: *whole
@@ -27,3 +28,10 @@ labels:
     hungarian: "petrezselyem"
     english: "parsley"
     preprocess: *chopped
+  -
+    hungarian: "bbq fűszersó"
+    english: "bbq dry rub"
+    preprocess: *mix
+    ingredients:
+      - spice: *ground_garlic
+        ratio: "1 ek"
