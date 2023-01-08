@@ -5,11 +5,32 @@ preprocesses:
   - &chopped "chopped"
   - &whole "whole"
   - &mix "mix"
+units:
+  - &tablespoon
+    name: "evőkanál"
+    abbreviation: "ek"
+  - &cup
+    name: "bögre"
+    abbreviation: "b"
+source:
+  - &fruit "fruit"
+  - &corn "corn"
+  - &leaf "leaf"
+  - &stem "stem"
+  - &root "root"
+  - &substance "substance"
 labels:
+  -
+    hungarian: "zeller"
+    english: "celery"
+    preprocess: *chopped
+    source: *stem
   - &ground_garlic
     hungarian: "fokhagyma"
     english: "garlic"
     preprocess: *ground
+    source: *root
+    hot: yes
     conlang:
       name: "TBA"
       language: *taahaaduuhaan
@@ -19,19 +40,46 @@ labels:
     hungarian: "feketebors"
     english: "black pepper"
     preprocess: *whole
+    source: *corn
     conlang:
-        name: "ob'tran bo'řün"
-        language: *taahaaduuhaan
-        ipa: "obʔt͜rɑn boʔʙyn"
-        note: "sötét kicsi-kör"
+      name: "ob'tran bo'řün"
+      language: *taahaaduuhaan
+      ipa: "obʔt͜rɑn boʔʙyn"
+      note: "sötét kicsi-kör"
+  - &ground_coloredpepper
+    hungarian: "tarkabors"
+    english: "colored pepper"
+    preprocess: *ground
+    source: *corn
   -
     hungarian: "petrezselyem"
     english: "parsley"
     preprocess: *chopped
+    source: *leaf
+  - &chopped_brownsugar
+    hungarian: "barnacukor"
+    english: "brown sugar"
+    preprocess: *chopped
+    source: *substance
+  - &ground_smokedredpepper
+    hungarian: "füstös paprika"
+    english: "smoked red pepper"
+    preprocess: *ground
+    source: *fruit
   -
     hungarian: "bbq fűszersó"
     english: "bbq dry rub"
     preprocess: *mix
     ingredients:
       - spice: *ground_garlic
-        ratio: "1 ek"
+        amount: 1
+        unit: *tablespoon
+      - spice: *ground_coloredpepper
+        amount: 1
+        unit: *tablespoon
+      - spice: *chopped_brownsugar
+        amount: 1
+        unit: *cup
+      - spice: *ground_smokedredpepper
+        amount: 1
+        unit: *cup

@@ -6,26 +6,46 @@ layout: default
     {% comment %}<code>{{ spice }}</code>{% endcomment %}
 
     <div class="label">
-        <span class="hungarian">{{ spice.hungarian }}</span>
-        {% case spice.preprocess %}
-            {% when "ground" %}
-                <i class="fa-solid fa-mortar-pestle"></i>
-            {% when "chopped" %}
-                <i class="fa-solid fa-scissors"></i>
-            {% when "whole" %}
-                <i class="fa-solid fa-circle"></i>
-            {% when "mix" %}
-                <i class="fa-solid fa-scale-balanced"></i>
-            {% else %}
-                &mdash;
-        {% endcase %}
-        <span class="english">{{ spice.english }}</span>
+        {% if spice.hot %}
+        <p class="header under_border hot">
+        {% elsif spice.source %}
+        <p class="header under_border {{ spice.source }}">
+        {% else %}
+        <p class="header">
+        {% endif %}
+            <span class="hungarian">{{ spice.hungarian }}</span>
+            <span>
+                {% case spice.preprocess %}
+                    {% when "whole" %}
+                        <i class="fa-solid fa-cube"></i>
+                    {% when "chopped" %}
+                        <i class="fa-solid fa-cubes"></i>
+                    {% when "ground" %}
+                        <i class="fa-solid fa-cubes-stacked"></i>
+                    {% when "mix" %}
+                        <i class="fa-solid fa-mortar-pestle"></i>
+                    {% else %}
+                        &mdash;
+                {% endcase %}
+            </span>
+            <span class="english">{{ spice.english }}</span>
+        </p>
+
         {% if spice.conlang %}
-            <br/>
-            <p class="conlang">
+            <p class="conlang details">
                 {{ spice.conlang.name }} ({{ spice.conlang.language }})<br/>
                 <span class="ipa">[{{ spice.conlang.ipa }}]</span><br/>
                 <span class="note">"{{ spice.conlang.note }}"</span>
+            </p>
+        {% elsif spice.ingredients %}
+            <p class="details ingredients">
+                {% for ingredient in spice.ingredients %}
+                    <span class="amount">{{ ingredient.amount }} {{ ingredient.unit.abbreviation }}</span>
+                    <span class="ingredient">{{ ingredient.spice.hungarian }}</span>
+                    {% if forloop.last == false %}
+                        &bullet;
+                    {% endif %}
+                {% endfor %}
             </p>
         {% endif %}
     </div>

@@ -3,22 +3,69 @@
 
 @import "main";
 
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+//https://www.colourlovers.com/palette/56122/Sweet_Lolly
+//https://www.colourlovers.com/palette/1309168/pumpkin
+//https://www.colourlovers.com/palette/1081510/Nature_Walk
+
+.under_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2pt;
+}
+
+.fruit {
+  border-bottom-color: #FABE28;
+}
+
+.corn {
+  border-bottom-color: #FF8A00;
+}
+
+.leaf {
+  border-bottom-color: #758918;
+}
+
+.stem {
+  border-bottom-color: #9E9A41;
+}
+
+.root {
+  border-bottom-color: #5E3021;
+}
+
+.substance {
+  border-bottom-color: dimgray;
+}
+
+.hot {
+  border-bottom-color: #FF2311;
+}
+
 body {
-  width: 210mm;
+  width: 150mm; //210mm the A4 page
   border: black solid 1pt;
   padding: .5cm;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 div.label {
   display: inline-block;
   vertical-align: top;
-  max-width: 60mm;
+  max-width: 65mm;
   max-height: 20mm;
-  min-width: 60mm;
+  min-width: 65mm;
   min-height: 20mm;
   margin: 1mm;
   padding: 1mm;
-  border: black dashed .6pt;
+  border: black dashed .3pt;
   text-align: center;
   font-size: 10pt;
 }
@@ -33,17 +80,43 @@ span.english {
   font-variant: small-caps;
 }
 
-p.conlang {
-  font-family: serif;
-  font-style: normal;
-  font-size: 8pt;
-}
-
 span.ipa {
   font-family: "Times New Roman", sans-serif;
+}
+
+span.amount {
+  color: darkgray;
 }
 
 span.note {
   font-style: italic;
   font-family: serif;
+}
+
+span.ingredient {
+  hyphens: auto;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+p.header {
+  display: inline-block;
+}
+
+p.details {
+  font-style: normal;
+  font-size: 8pt;
+  margin-top: 1ex;
+}
+
+p.conlang {
+  font-family: serif;
+}
+
+p.ingredients {
+  font-size: 6pt;
+  text-align: justify;
 }
