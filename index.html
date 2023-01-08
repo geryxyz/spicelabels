@@ -2,51 +2,76 @@
 layout: default
 ---
 
-{% for spice in site.data.spices.labels %}
+<span id="open_all" class="button">open all</span>
+<span id="close_all" class="button">close all</span><br/>
+
+{% assign labels_by_hungarian = site.data.spices.labels | sort: "hungarian" %}
+{% for spice in labels_by_hungarian %}
     {% comment %}<code>{{ spice }}</code>{% endcomment %}
 
-    <div class="label">
-        {% if spice.hot %}
-        <p class="header under_border hot">
-        {% elsif spice.source %}
-        <p class="header under_border {{ spice.source }}">
-        {% else %}
-        <p class="header">
-        {% endif %}
-            <span class="hungarian">{{ spice.hungarian }}</span>
-            <span>
-                {% case spice.preprocess %}
-                    {% when "whole" %}
-                        <i class="fa-solid fa-cube"></i>
-                    {% when "chopped" %}
-                        <i class="fa-solid fa-cubes"></i>
-                    {% when "ground" %}
-                        <i class="fa-solid fa-cubes-stacked"></i>
-                    {% when "mix" %}
-                        <i class="fa-solid fa-mortar-pestle"></i>
-                    {% else %}
-                        &mdash;
-                {% endcase %}
-            </span>
-            <span class="english">{{ spice.english }}</span>
-        </p>
+    <details open="open">
+        <summary>{{ spice.hungarian }}</summary>
+        <div class="label">
+            {% if spice.hot %}
+            <p class="header under_border hot">
+            {% elsif spice.source %}
+            <p class="header under_border {{ spice.source }}">
+            {% else %}
+            <p class="header under_border">
+            {% endif %}
+                <span class="hungarian">{{ spice.hungarian }}</span>
+                <span class="preprocess">
+                    {% case spice.preprocess %}
+                        {% when "whole" %}
+                            <i class="fa-solid fa-cube"></i>
+                        {% when "chopped" %}
+                            <i class="fa-solid fa-cubes"></i>
+                        {% when "ground" %}
+                            <i class="fa-solid fa-cubes-stacked"></i>
+                        {% when "mix" %}
+                            <i class="fa-solid fa-mortar-pestle"></i>
+                        {% else %}
+                            &mdash;
+                    {% endcase %}
+                </span>
+                <span class="english">{{ spice.english }}</span>
+            </p>
 
-        {% if spice.conlang %}
-            <p class="conlang details">
-                {{ spice.conlang.name }} ({{ spice.conlang.language }})<br/>
-                <span class="ipa">[{{ spice.conlang.ipa }}]</span><br/>
-                <span class="note">"{{ spice.conlang.note }}"</span>
-            </p>
-        {% elsif spice.ingredients %}
-            <p class="details ingredients">
-                {% for ingredient in spice.ingredients %}
-                    <span class="amount">{{ ingredient.amount }} {{ ingredient.unit.abbreviation }}</span>
-                    <span class="ingredient">{{ ingredient.spice.hungarian }}</span>
-                    {% if forloop.last == false %}
-                        &bullet;
-                    {% endif %}
-                {% endfor %}
-            </p>
-        {% endif %}
-    </div>
+            {% if spice.conlang %}
+                <p class="conlang details">
+                    {{ spice.conlang.name }} ({{ spice.conlang.language }})<br/>
+                    <span class="ipa">[{{ spice.conlang.ipa }}]</span><br/>
+                    <span class="note">"{{ spice.conlang.note }}"</span>
+                </p>
+            {% elsif spice.ingredients %}
+                <p class="details ingredients">
+                    {% for ingredient in spice.ingredients %}
+                        <span class="amount">{{ ingredient.amount }}{{ ingredient.unit.abbreviation }}</span>
+                        <span class="ingredient">{{ ingredient.spice.hungarian }}</span>
+                        {% if forloop.last == false %}
+                            &bullet;
+                        {% endif %}
+                    {% endfor %}
+                </p>
+            {% endif %}
+        </div>
+    </details>
 {% endfor %}
+
+<script type="text/javascript">
+    let open_all = document.getElementById("open_all");
+    let close_all = document.getElementById("close_all");
+
+    let all_details = document.getElementsByTagName("details");
+
+    open_all.onclick = function () {
+        for (let i = 0; i < all_details.length; i++) {
+            all_details[i].open = true;
+        }
+    }
+    close_all.onclick = function () {
+        for (let i = 0; i < all_details.length; i++) {
+            all_details[i].open = false;
+        }
+    }
+</script>

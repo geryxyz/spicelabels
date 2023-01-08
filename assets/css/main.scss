@@ -15,65 +15,92 @@ html {
 //https://www.colourlovers.com/palette/1081510/Nature_Walk
 
 .under_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2pt;
+  border-top-style: solid;
+  border-top-width: 4pt;
+  border-top-color: lightgray;
 }
 
 .fruit {
-  border-bottom-color: #FABE28;
+  border-top-color: #FABE28;
 }
 
 .corn {
-  border-bottom-color: #FF8A00;
+  border-top-color: #FF8A00;
 }
 
 .leaf {
-  border-bottom-color: #758918;
+  border-top-color: #8A9B0F;
 }
 
 .stem {
-  border-bottom-color: #9E9A41;
+  border-top-color: #008C9E;
 }
 
 .root {
-  border-bottom-color: #5E3021;
+  border-top-color: #5E3021;
 }
 
 .substance {
-  border-bottom-color: dimgray;
+  border-top-color: dimgray;
 }
 
 .hot {
-  border-bottom-color: #FF2311;
-  border-bottom-style: dashed;
+  border-top-color: #FF2311;
+  border-top-style: dotted;
 }
 
 body {
-  width: 150mm; //210mm the A4 page
+  width: 200mm; //210mm the A4 page
   border: black solid 1pt;
-  padding: .5cm;
+  padding: .25cm;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
 
+details {
+  display: inline-block;
+//  border: magenta solid 1pt;
+  margin: .5mm;
+  padding: 0;
+}
+
+summary {
+//  border: magenta solid 1pt;
+  margin: 0;
+  padding: 0;
+}
+
 div.label {
   display: inline-block;
   vertical-align: top;
-  max-width: 65mm;
+  max-width: 60mm;
   max-height: 20mm;
-  min-width: 65mm;
+  min-width: 60mm;
   min-height: 20mm;
-  margin: 1mm;
   padding: 1mm;
-  border: black dashed .3pt;
+  margin: 0;
+  border: lightgray dotted .3pt;
   text-align: center;
-  font-size: 10pt;
+  font-size: 12pt;
+}
+
+span.button {
+  display: inline-block;
+  padding: 1mm;
+  margin: 1mm;
+  background: lightgray;
+  border: black solid 1pt;
+  cursor: pointer;
 }
 
 span.hungarian {
   font-weight: bold;
   font-variant: small-caps;
+}
+
+span.preprocess {
+  font-size: smaller;
 }
 
 span.english {
@@ -105,6 +132,8 @@ p {
 
 p.header {
   display: inline-block;
+  line-height: .75;
+  padding-top: 1pt;
 }
 
 p.details {
