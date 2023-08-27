@@ -4,7 +4,6 @@ preprocesses:
   - &ground "ground"
   - &chopped "chopped"
   - &whole "whole"
-  - &mix "mix"
 units:
   - &tablespoon
     name: "evőkanál"
@@ -12,158 +11,216 @@ units:
   - &cup
     name: "bögre"
     abbreviation: "b"
-source:
-  - &fruit "fruit"
-  - &corn "corn"
-  - &leaf "leaf"
-  - &stem "stem"
-  - &root "root"
-  - &substance "substance"
 sample:
-  - &ground_
+  - &sample
     hungarian: ""
     english: ""
-    preprocess:
-    source:
 labels:
-  -
-    hungarian: "zeller"
-    english: "celery"
-    preprocess: *chopped
-    source: *stem
-  - &garlic_ground
-    hungarian: "fokhagyma"
-    english: "garlic"
-    preprocess: *ground
-    source: *root
-    hot: yes
-    conlang:
-      name: "TBA"
-      language: *taahaaduuhaan
-      ipa: "TBA"
-      note: "a szaga is, mint a csapzott álombivaly szőre"
-  - &blackpepper_whole
+  - &anise
+    hungarian: "ánizs"
+    english: "anise"
+
+  - &chili_pepper
+    hungarian: "csilipaprika"
+    english: "chili pepper"
+
+  - &thyme
+    hungarian: "kakukkfű"
+    english: "thyme"
+
+  - &mustard
+    hungarian: "mustár"
+    english: "mustard"
+
+  - &brown_sugar
+    hungarian: "barnacukor"
+    english: "brown sugar"
+
+  - &basil
+    hungarian: "bazsalikom"
+    english: "basil"
+
+  - &white_pepper
+    hungarian: "fehérbors"
+    english: "white pepper"
+
+  - &black_pepper
     hungarian: "feketebors"
     english: "black pepper"
-    preprocess: *whole
-    source: *corn
+
+  - &green_pepper
+    hungarian: "zöldbors"
+    english: "green pepper"
+
+  - &cumin
+    hungarian: "fűszerkömény"
+    english: "cumin"
+
+  - &paprika
+    hungarian: "paprika"
+    english: "paprika"
+
+  - &cinnamon
+    hungarian: "fahéj"
+    english: "cinnamon"
+
+  - &ginger
+    hungarian: "gyömbér"
+    english: "ginger"
+
+  - &star_anise
+    hungarian: "csillagánizs"
+    english: "star anise"
+
+  - &cayenne_pepper
+    hungarian: "cayenne bors"
+    english: "cayenne pepper"
+
+  - &parsley
+    hungarian: "petrezselyem"
+    english: "parsley"
+
+  - &tarragon
+    hungarian: "tárkonylevél"
+    english: "tarragon"
+
+  - &vinegar
+    hungarian: "ecet"
+    english: "vinegar"
+
+  - &celery
+    hungarian: "zeller"
+    english: "celery"
+
+  - &oregano
+    hungarian: "oregánó"
+    english: "oregano"
+
+  - &rosemary
+    hungarian: "rozmaring"
+    english: "rosemary"
+
+  - &marjoram
+    hungarian: "majoranna"
+    english: "marjoram"
+
+  - &chives
+    hungarian: "metélőhagyma"
+    english: "chives"
+
+  - &pink_pepper
+    hungarian: "rózsabors"
+    english: "pink pepper"
+
+  - &allspice
+    hungarian: "szegfűbors"
+    english: "allspice"
+
+  - &clove
+    hungarian: "szegfűszeg"
+    english: "clove"
+
+  - &sichuan_pepper
+    hungarian: "szecsuáni bors"
+    english: "Sichuan pepper"
+
+  - &fennel
+    hungarian: "édeskömény"
+    english: "fennel"
+
+  - &garlic
+    hungarian: "fokhagyma"
+    english: "garlic"
+
+  - &smoked_paprika
+    hungarian: "füstölt paprika"
+    english: "smoked paprika"
+
+  - &nutmeg
+    hungarian: "szerecsendió"
+    english: "nutmeg"
+
+  - &juniper_berry
+    hungarian: "borókabogyó"
+    english: "juniper berry"
+
+  - &salt
+    hungarian: "só"
+    english: "salt"
+
+  - &cardamom
+    hungarian: "kardamon"
+    english: "cardamom"
+
+  - &coriander
+    hungarian: "koriander"
+    english: "coriander"
+
+  - &bbq_dry_rub
+    hungarian: "bbq fűszersó"
+    english: "bbq dry rub"
+    ingredients:
+      - spice: *garlic
+        preprocess: *ground
+        amount: 1
+        unit: *tablespoon
+      - spice: *black_pepper
+        preprocess: *ground
+        amount: 1
+        unit: *tablespoon
+      - spice: *green_pepper
+        preprocess: *ground
+        amount: 1
+        unit: *tablespoon
+      - spice: *pink_pepper
+        preprocess: *ground
+        amount: 1
+        unit: *tablespoon
+      - spice: *brown_sugar
+        preprocess: *chopped
+        amount: 1
+        unit: *cup
+      - spice: *smoked_paprika
+        preprocess: *ground
+        amount: 1
+        unit: *cup
+  - &gingerbread
+    hungarian: "mézes"
+    english: "gingerbread"
+    ingredients:
+      - spice: *cinnamon
+        preprocess: *ground
+      - spice: *nutmeg
+        preprocess: *ground
+      - spice: *nutmeg
+        preprocess: *ground
+      - spice: *ginger
+        preprocess: *ground
+      - spice: *fennel
+        preprocess: *ground
+      - spice: *clove
+        preprocess: *ground
+      - spice: *allspice
+        preprocess: *ground
+      - spice: *anise
+        preprocess: *ground
+      - spice: *star_anise
+        preprocess: *ground
+      - spice: *black_pepper
+        preprocess: *ground
+      - spice: *cardamom
+        preprocess: *ground
+
+translations:
+  - label: *black_pepper
     conlang:
       name: "ob'tran bo'řün"
       language: *taahaaduuhaan
       ipa: "obʔt͜rɑn boʔʙyn"
       note: "sötét kicsi-kör"
-  - &blackpepper_ground
-    hungarian: "feketebors"
-    english: "black pepper"
-    preprocess: *ground
-    source: *corn
-  - &coloredpepper_ground
-    hungarian: "tarkabors"
-    english: "colored pepper"
-    preprocess: *ground
-    source: *corn
-  -
-    hungarian: "petrezselyem"
-    english: "parsley"
-    preprocess: *chopped
-    source: *leaf
-  - &brownsugar_chopped
-    hungarian: "barnacukor"
-    english: "brown sugar"
-    preprocess: *chopped
-    source: *substance
-  - &smokedredpepper_ground
-    hungarian: "füstölt paprika"
-    english: "smoked red pepper"
-    preprocess: *ground
-    source: *fruit
-  - &oregano_chopped
-    hungarian: "oregánó"
-    english: "oregano"
-    preprocess: *chopped
-    source: *leaf
-  - &cinnamon_ground
-    hungarian: "fahéj"
-    english: "cinnamon"
-    preprocess: *ground
-    source: *stem
-  - &nutmeg_ground
-    hungarian: "szerecsendió"
-    english: "nutmeg"
-    preprocess: *ground
-    source: *corn
-  - &coriander_ground
-    hungarian: "koriander"
-    english: "coriander"
-    preprocess: *ground
-  - &ginger_ground
-    hungarian: "gyömbér"
-    english: "ginger"
-    preprocess: *ground
-    source: *root
-  - &fennel_ground
-    hungarian: "édeskömény"
-    english: "fennel"
-    preprocess: *ground
-    source: *corn
-  - &allspice_ground
-    hungarian: "szegfűbors"
-    english: "allspice"
-    preprocess: *ground
-    source: *corn
-  - &clove_ground
-    hungarian: "szegfűszeg"
-    english: "clove"
-    preprocess: *ground
-    source: *corn
-  - &anise_ground
-    hungarian: "ánizs"
-    english: "anise"
-    preprocess: *ground
-    source: *corn
-  - &staranise_ground
-    hungarian: "csillagánizs"
-    english: "staranise"
-    preprocess: *ground
-    source: *corn
-  - &cardamon_ground
-    hungarian: "kardamon"
-    english: "cardamon"
-    preprocess: *ground
-    source: *corn
-
-  -
-    hungarian: "bbq fűszersó"
-    english: "bbq dry rub"
-    preprocess: *mix
-    ingredients:
-      - spice: *garlic_ground
-        amount: 1
-        unit: *tablespoon
-      - spice: *coloredpepper_ground
-        amount: 1
-        unit: *tablespoon
-      - spice: *brownsugar_chopped
-        amount: 1
-        unit: *cup
-      - spice: *smokedredpepper_ground
-        amount: 1
-        unit: *cup
-  -
-    hungarian: "mézes"
-    english: "gingerbread"
-    preprocess: *mix
-    ingredients:
-      - spice: *cinnamon_ground
-      - spice: *nutmeg_ground
-      - spice: *coriander_ground
-      - spice: *ginger_ground
-      - spice: *fennel_ground
-      - spice: *clove_ground
-      - spice: *allspice_ground
-      - spice: *anise_ground
-      - spice: *staranise_ground
-      - spice: *blackpepper_ground
-      - spice: *cardamon_ground
-
-
+  - label: *garlic
+    conlang:
+      name: "TBA"
+      language: *taahaaduuhaan
+      ipa: "TBA"
+      note: "a szaga is, mint a csapzott álombivaly szőre"

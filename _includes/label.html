@@ -1,0 +1,54 @@
+<div class="label" xmlns="http://www.w3.org/1999/html">
+    <p class="header">
+        <span class="hungarian">{{ spice.hungarian }}</span>
+        {% if spice.ingredients %}
+            <span class="preprocess mix">
+                <i class="fa-solid fa-mortar-pestle"></i>
+            </span>
+        {% else %}
+            <span class="preprocess {{ preprocess }}">
+            {% case preprocess %}
+                {% when "whole" %}
+                    <i class="fa-solid fa-cube"></i>
+                {% when "chopped" %}
+                    <i class="fa-solid fa-cubes"></i>
+                {% when "ground" %}
+                    <i class="fa-solid fa-cubes-stacked"></i>
+                {% else %}
+                    &mdash;
+            {% endcase %}
+            </span>
+        {% endif %}
+        <span class="english">{{ spice.english }}</span>
+    </p>
+
+    {% for translation in site.data.spices.translations %}
+        {% if translation.label.english == spice.english %}
+            <p class="conlang details">
+                {% if translation.conlang.name == "TBA" %}
+                    <i class="fa-solid fa-ellipsis"></i>
+                {% else %}
+                    {{ translation.conlang.name }}
+                {% endif %}
+                    ({{ translation.conlang.language }})<br/>
+                {% if translation.conlang.ipa != "TBA" %}
+                    <span class="ipa">[{{ translation.conlang.ipa }}]</span><br/>
+                {% endif %}
+                <span class="note">"{{ translation.conlang.note }}"</span>
+            </p>
+        {% endif %}
+    {% endfor %}
+    {% if spice.ingredients %}
+        <p class="details ingredients">
+            {% for ingredient in spice.ingredients %}
+                <span class="no-line-break">
+                    <span class="amount">{{ ingredient.amount }}{{ ingredient.unit.abbreviation }}</span>
+                    <span class="ingredient">{{ ingredient.spice.hungarian }}</span>
+                </span>
+                {% if forloop.last == false %}
+                    &bullet;
+                {% endif %}
+            {% endfor %}
+        </p>
+    {% endif %}
+</div>

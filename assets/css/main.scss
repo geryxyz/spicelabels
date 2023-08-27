@@ -1,8 +1,6 @@
 ---
 ---
 
-@import "main";
-
 html {
   box-sizing: border-box;
 }
@@ -13,41 +11,6 @@ html {
 //https://www.colourlovers.com/palette/56122/Sweet_Lolly
 //https://www.colourlovers.com/palette/1309168/pumpkin
 //https://www.colourlovers.com/palette/1081510/Nature_Walk
-
-.under_border {
-  border-top-style: solid;
-  border-top-width: 4pt;
-  border-top-color: lightgray;
-}
-
-.fruit {
-  border-top-color: #FABE28;
-}
-
-.corn {
-  border-top-color: #FF8A00;
-}
-
-.leaf {
-  border-top-color: #8A9B0F;
-}
-
-.stem {
-  border-top-color: #008C9E;
-}
-
-.root {
-  border-top-color: #5E3021;
-}
-
-.substance {
-  border-top-color: dimgray;
-}
-
-.hot {
-  border-top-color: #FF2311;
-  border-top-style: dotted;
-}
 
 body {
   width: 200mm; //210mm the A4 page
@@ -74,9 +37,9 @@ summary {
 div.label {
   display: inline-block;
   vertical-align: top;
-  max-width: 60mm;
+  max-width: 70mm;
   max-height: 20mm;
-  min-width: 60mm;
+  min-width: 40mm;
   min-height: 20mm;
   padding: 1mm;
   margin: 0;
@@ -100,7 +63,24 @@ span.hungarian {
 }
 
 span.preprocess {
-  font-size: smaller;
+  //font-size: smaller;
+  vertical-align: -0.1em;
+}
+
+span.ground {
+  color: #00B34C;
+}
+
+span.chopped {
+  color: #0074B4;
+}
+
+span.whole {
+  color: #5B1D99;
+}
+
+span.mix {
+  color: #FC6E3D;
 }
 
 span.english {
@@ -147,6 +127,10 @@ p.conlang {
 }
 
 p.ingredients {
-  font-size: 6pt;
+  //font-size: 6pt;
   text-align: justify;
+}
+
+.no-line-break {
+  white-space: nowrap;
 }

@@ -7,55 +7,21 @@ layout: default
 
 {% assign labels_by_hungarian = site.data.spices.labels | sort: "hungarian" %}
 {% for spice in labels_by_hungarian %}
-    {% comment %}<code>{{ spice }}</code>{% endcomment %}
+    {% if spice.ingredients %}
+        <details open="open">
+            <summary>{{ spice.hungarian }}</summary>
+            {% include label.html %}
+        </details>
+    {% else %}
+        {% for preprocess in site.data.spices.preprocesses %}
+            {% comment %}<code>{{ spice }}</code>{% endcomment %}
 
-    <details open="open">
-        <summary>{{ spice.hungarian }}</summary>
-        <div class="label">
-            {% if spice.hot %}
-            <p class="header under_border hot">
-            {% elsif spice.source %}
-            <p class="header under_border {{ spice.source }}">
-            {% else %}
-            <p class="header under_border">
-            {% endif %}
-                <span class="hungarian">{{ spice.hungarian }}</span>
-                <span class="preprocess">
-                    {% case spice.preprocess %}
-                        {% when "whole" %}
-                            <i class="fa-solid fa-cube"></i>
-                        {% when "chopped" %}
-                            <i class="fa-solid fa-cubes"></i>
-                        {% when "ground" %}
-                            <i class="fa-solid fa-cubes-stacked"></i>
-                        {% when "mix" %}
-                            <i class="fa-solid fa-mortar-pestle"></i>
-                        {% else %}
-                            &mdash;
-                    {% endcase %}
-                </span>
-                <span class="english">{{ spice.english }}</span>
-            </p>
-
-            {% if spice.conlang %}
-                <p class="conlang details">
-                    {{ spice.conlang.name }} ({{ spice.conlang.language }})<br/>
-                    <span class="ipa">[{{ spice.conlang.ipa }}]</span><br/>
-                    <span class="note">"{{ spice.conlang.note }}"</span>
-                </p>
-            {% elsif spice.ingredients %}
-                <p class="details ingredients">
-                    {% for ingredient in spice.ingredients %}
-                        <span class="amount">{{ ingredient.amount }}{{ ingredient.unit.abbreviation }}</span>
-                        <span class="ingredient">{{ ingredient.spice.hungarian }}</span>
-                        {% if forloop.last == false %}
-                            &bullet;
-                        {% endif %}
-                    {% endfor %}
-                </p>
-            {% endif %}
-        </div>
-    </details>
+            <details open="open">
+                <summary>{{ spice.hungarian }}</summary>
+                {% include label.html %}
+            </details>
+        {% endfor %}
+    {% endif %}
 {% endfor %}
 
 <script type="text/javascript">
